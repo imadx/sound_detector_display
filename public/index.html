@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sound Detector: Display</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+</head>
+<body>
+	<div id="app">
+		<div id="soundDisplay">
+			<img class="fixToCenter" id="center" src="img/center.svg" alt="">
+			<img class="fixToCenter" id="radial" src="img/radial.svg" alt="">
+			<div class="fixToCenter indicator" v-for="sound in soundData">
+				<div class="indicator-distance-rotate" :style="'transform: rotate(' + -sound.direction + 'deg);'">
+					<div class="indicator-distance-translate">
+						<div class="indicator-direction">
+							<img src="img/direction.svg" alt="">
+						</div>
+						<img class="indicator-icon" src="img/icon-1.svg" :style="'transform: translate(-50%, -50%) rotate(' + sound.direction + 'deg);'" :alt="sound.id">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

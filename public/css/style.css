@@ -1,0 +1,95 @@
+
+html, body{
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 11pt;
+}
+#app {
+	width: 100%;
+	height: 100%;
+}
+#soundDisplay {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+}
+.fixToCenter {
+	display: block;
+	position: absolute;
+	left: 50vw;
+	top: 50vh;
+	transform: translate(-50%, -50%);
+}
+.indicator {
+	position: absolute;
+	display: block;
+}
+.indicator .indicator-icon, .indicator .indicator-direction{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@keyframes direction-appear-portrait {
+    0% {transform: translate(40vw) scale(0.2); opacity: 0;}
+    50% {opacity: 1; transform: translate(38vw) scale(1);}
+    100% {transform: translate(37vw) scale(1);}
+}
+@keyframes direction-appear-landscape {
+    0% {transform: translate(40vh) scale(0.2); opacity: 0;}
+    50% {opacity: 1; transform: translate(38vh) scale(1);}
+    100% {transform: translate(37vh) scale(1);}
+}
+
+@media screen and (orientation:portrait) {
+	#center {
+		width: 10vw;
+		height: 10vw;
+	}
+	#radial {
+		width: 75vw;
+		height: 75vw;
+	}
+	.indicator-icon {
+		width: 8vw;		
+		width: 8vw;		
+	}
+	.indicator-direction img {
+		width: 20vw;
+		height: 20vw;
+	}
+
+	.indicator-distance-translate{
+		animation: direction-appear-portrait .5s ease-out;
+		transform: translate(37vw);
+	}
+ 	
+}
+@media screen and (orientation:landscape) {
+	#center {
+		width: 10vh;
+		height: 10vh;
+	}
+	#radial {
+		width: 75vh;
+		height: 75vh;
+	}
+	.indicator-icon {
+		width: 8vh;		
+		width: 8vh;		
+	}
+	.indicator-direction img {
+		width: 20vh;
+		height: 20vh;
+	}
+
+	.indicator-distance-translate{
+		animation: direction-appear-landscape .5s ease-out;
+		transform: translate(37vh);
+	} 
+}
